@@ -1,4 +1,4 @@
-package com.seunome.trevo
+package com.luismarcaldeva.App
 
 import android.app.Application
 import android.content.res.Configuration

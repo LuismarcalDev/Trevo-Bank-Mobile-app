@@ -6,24 +6,31 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { useState } from "react";
+
 import Header from "./Header";
 import CartaoHome from "./CartaoHome";
 import PopUp from "./PopUp";
 import Porquinho from "./Porquinho";
 import Suporte from "./Suporte";
+import { useRouter } from "expo-router";
+import React, { useContext,useState } from "react";
+import { SaldoContext } from "../Context/AppContext";
 export default function Interface() {
   const [olhos, setOlhos] = useState<boolean>(false);
-  const [saldo, setSaldo] = useState<string>("200.00");
-  function eyea() {
-    setOlhos(!olhos);
-    if (olhos === false) {
-      setSaldo(".....");
-    } else if (olhos === true) {
-      setSaldo("200.00");
-    }
-  }
+  
+  const {saldo,salvarSaldo} = useContext(SaldoContext)
+    const router = useRouter();
+
   //#0A8544
+
+  function deposito(){
+    router.push("/screens/Acoes/Deposito")
+  }
+
+
+
+
+
   return (
     <ScrollView showsHorizontalScrollIndicator={false}>
       <View>
@@ -35,7 +42,7 @@ export default function Interface() {
             <View style={styles.saldo}>
               <Text style={styles.saldoText}>R$ {saldo}</Text>
 
-              <TouchableOpacity onPress={eyea}>
+              <TouchableOpacity>
                 {olhos ? (
                   <Image
                     source={require("../Assets/interface/olho1.png")}
@@ -64,12 +71,14 @@ export default function Interface() {
             </View>
 
             <View style={styles.mb}>
-              <View style={styles.acoes02}>
+             <TouchableOpacity onPress={deposito}>
+               <View style={styles.acoes02}>
                 <Image
                   style={styles.fla}
                   source={require("../Assets/interface/acoes/deposito.png")}
                 />
               </View>
+             </TouchableOpacity>
               <Text style={styles.dk}>Fazer deposito</Text>
             </View>
 
@@ -95,7 +104,7 @@ export default function Interface() {
           </View>
 
           <CartaoHome />
-          <View style={styles.texte}>
+          <View style={styles.sds}>
             <PopUp />
           </View>
           <View style={styles.texte}>
@@ -112,8 +121,8 @@ export default function Interface() {
 
 const styles = StyleSheet.create({
   geral: {
-    height: 1000,
-    backgroundColor:'#fdffff59'
+    height: 1100,
+    backgroundColor:'#fdffffab'
   },
   interp1: {
     paddingLeft: 20,
@@ -128,7 +137,7 @@ const styles = StyleSheet.create({
     top: 20,
   },
   saldo: {
-    backgroundColor: "#e1e2e2ce",
+    backgroundColor: "#e1e2e210",
     padding: 30,
     borderRadius: 7,
     paddingLeft: 10,
@@ -136,14 +145,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    borderBottomWidth:1,
+    borderBottomColor:"#4063632a"
   },
   textSaldo: {
     fontSize: 20,
-    top: 10,
+    top: 20,
   },
   saldoText: {
-    fontSize: 23,
-    fontWeight: 500,
+    fontSize: 24,
+    fontWeight: 400,
+    right:5
   },
   imgolho: {
     width: 32,
@@ -155,7 +167,7 @@ const styles = StyleSheet.create({
   acoes: {
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 20,
+    paddingTop: 13,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -170,7 +182,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     height: 70,
     borderWidth: 2,
-    borderColor: "#cfd6d3a4",
+    borderColor: "#cfd6d37c",
     justifyContent: "center",
   },
   fla: {
@@ -183,5 +195,10 @@ const styles = StyleSheet.create({
   },
   dk: {
     fontSize: 12,
+    fontWeight:500,
+    color:"#181818e1"
   },
+  sds:{
+    paddingTop:25
+  }
 });

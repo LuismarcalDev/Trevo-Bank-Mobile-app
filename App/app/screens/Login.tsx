@@ -8,7 +8,6 @@ export default function Login(){
     const[abrir,setAbrir] = useState<string>("")
     const [cpf,setCpf]= useState<string>("")
     const [senha,setSenha]= useState<string>("")
-    const [atencao,setAtencao] =  useState<string>("")
      const router = useRouter();
     let [fontsLoaded] = useFonts({
     Montserrat_400Regular,
@@ -95,9 +94,30 @@ function Cadastro(){
                    Fazer Cadastro
                    </Text>
                 </TouchableOpacity>
-             <Text>
-                {atencao}
-             </Text>
+                    <View style={styles.fazerPix}>
+                     
+                          <Text style={styles.textPix}>Realizar Pix</Text>
+                             <Image
+                        style={styles.pixes}
+                        source={require("../Assets/Login/pixes.png")}
+                        />
+                    </View>
+
+                    <View style={styles.baixo}>
+                        <View style={styles.seguranca}>
+                            <Image
+                            style={styles.security}
+                            source={require("../Assets/Login/security.png")}
+                            />
+                            <Text style={styles.secu}>
+                                Segurança
+                            </Text>
+                        </View>
+
+                        <Text style={styles.secur}>
+                            Sobre 
+                        </Text>
+                    </View>
             </View>
 
         </View>
@@ -137,10 +157,10 @@ const styles = StyleSheet.create({
     },
     btnLogin:{
         width:"100%",
-        padding:11,
-        backgroundColor:"#e9e9e9",
+        padding:13,
+        backgroundColor:"#f8f8f8da",
         borderWidth: 2, // Largura da borda
-        borderColor: '#c8c8c8', // Cor da borda
+        borderColor: '#c8c8c867', // Cor da borda
         borderRadius: 7, // Bordas arredondadas
         
 
@@ -188,7 +208,55 @@ const styles = StyleSheet.create({
         borderRadius: 7, 
         padding:15,
         
+    },
+    fazerPix:{
+        display:"flex",
+        alignItems:"center",
+        flexDirection:"row",
+        gap:5,
+        paddingLeft:238,
+        top:-12
+    },
+    textPix:{
+         color:"#045E27",
+         fontWeight:400,
+         fontSize:15
+         
+
+    },
+    pixes:{
+        width:20,
+        height:20
+    },
+    baixo:{
+        display:"flex",
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+        width:"98%",
+        top:200
+    },
+    seguranca:{
+        display:"flex",
+        flexDirection:"row",
+        alignItems:"center",
+        gap:5
+    },
+    security:{
+        width:32,
+        height:32
+    },
+    secu:{
+       color:"#045E27",
+         fontWeight:400,
+         fontSize:15
+    },
+    secur:{
+           color:"#045E27",
+         fontWeight:500,
+         fontSize:15
     }
+
 
 
 })

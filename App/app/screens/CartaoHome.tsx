@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   geral: {
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 20,
+    paddingTop: 40,
  
   },
   og:{
