@@ -40,9 +40,10 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        paddingLeft:30,
-        paddingRight:30,
-        paddingTop:60
+        paddingLeft:20,
+        paddingRight:20,
+        paddingTop:60,
+        backgroundColor:'#fdffff4b',
 
     },
     topLogo:{

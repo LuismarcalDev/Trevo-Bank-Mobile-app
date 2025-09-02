@@ -113,18 +113,19 @@ export default function Interface() {
 const styles = StyleSheet.create({
   geral: {
     height: 1000,
+    backgroundColor:'#fdffff59'
   },
   interp1: {
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingLeft: 20,
+    paddingRight: 20,
     paddingTop: 20,
-    gap: 20,
+    gap: 25,
   },
   texte: {
     width: "100%",
-    paddingLeft: 30,
-    paddingRight: 30,
-    top: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    top: 20,
   },
   saldo: {
     backgroundColor: "#e1e2e2ce",
@@ -152,8 +153,8 @@ const styles = StyleSheet.create({
     top: -18,
   },
   acoes: {
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingLeft: 20,
+    paddingRight: 20,
     paddingTop: 20,
     display: "flex",
     flexDirection: "row",
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   acoes02: {
-    backgroundColor: "#e6e6e6ce",
+    backgroundColor: "#ffffff52",
     width: 70,
     alignItems: "center",
     paddingTop: 10,

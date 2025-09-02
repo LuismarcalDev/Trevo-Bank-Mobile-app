@@ -34,8 +34,8 @@ export default function CartaoHome() {
 
 const styles = StyleSheet.create({
   geral: {
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingLeft: 20,
+    paddingRight: 20,
     paddingTop: 20,
  
   },

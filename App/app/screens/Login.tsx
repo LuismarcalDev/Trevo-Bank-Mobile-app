@@ -31,6 +31,10 @@ function login(){
 
 }
 
+function Cadastro(){
+    router.push("/screens/Cadastro/Cadastro")
+}
+
 
 
 
@@ -76,13 +80,17 @@ function login(){
 
             <View style={styles.btnContainer}>
 
-                <TouchableOpacity style={styles.btnLogin} onPress={login}>
+                <TouchableOpacity 
+                style={styles.btnLogin} 
+                onPress={login}>
                    <Text style={styles.tbtn1}>
                    Entrar
                    </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.btnCadastro}>
+                <TouchableOpacity 
+                style={styles.btnCadastro} 
+                onPress={Cadastro}>
                    <Text style={styles.tbtn2}>
                    Fazer Cadastro
                    </Text>
@@ -101,8 +109,8 @@ const styles = StyleSheet.create({
           flex: 1,
     alignItems: "center",
     top: 100,
-    paddingRight: 30,
-    paddingLeft: 30,
+    paddingRight: 20,
+    paddingLeft: 20,
     gap:30
         
     },
