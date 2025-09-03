@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "c5119535-d754-4fb8-a1f9-58edd0882392"
+      }
+    },
+    "android": {
+      "package": "com.luismarcaldeva.trevobank"
+    }
+  }
+}

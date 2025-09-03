@@ -13,6 +13,8 @@ import PopUp from "./PopUp";
 import Porquinho from "./Porquinho";
 import Suporte from "./Suporte";
 import { useRouter } from "expo-router";
+import FazerPix from "./Acoes/FazerPix";
+
 
 export default function Interface() {
   const [olhos, setOlhos] = useState<boolean>(false);
@@ -30,6 +32,10 @@ export default function Interface() {
 
   function deposito(){
     router.push("/screens/Acoes/Deposito")
+  }
+
+  function fazerPix(){
+    router.push("/screens/Acoes/FazerPix")
   }
 
 
@@ -65,7 +71,11 @@ export default function Interface() {
           </View>
 
           <View style={styles.acoes}>
-            <View style={styles.mb}>
+
+           <TouchableOpacity 
+           onPress={fazerPix}
+           >
+             <View style={styles.mb}>
               <View style={styles.acoes02}>
                 <Image
                   style={styles.fla}
@@ -74,6 +84,7 @@ export default function Interface() {
               </View>
               <Text style={styles.dk}>Fazer Pix</Text>
             </View>
+           </TouchableOpacity>
 
             <View style={styles.mb}>
              <TouchableOpacity onPress={deposito}>
