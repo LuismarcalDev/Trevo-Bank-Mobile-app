@@ -8,7 +8,7 @@ export default function Preload() {
    useEffect(() => {
       setTimeout(() => {
         router.push("/screens/Login");
-      }, 4000);
+      }, 8000);
     });
 
 

@@ -6,21 +6,26 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-
+import { useState } from "react";
 import Header from "./Header";
 import CartaoHome from "./CartaoHome";
 import PopUp from "./PopUp";
 import Porquinho from "./Porquinho";
 import Suporte from "./Suporte";
 import { useRouter } from "expo-router";
-import React, { useContext,useState } from "react";
-import { SaldoContext } from "../Context/AppContext";
+
 export default function Interface() {
   const [olhos, setOlhos] = useState<boolean>(false);
-  
-  const {saldo,salvarSaldo} = useContext(SaldoContext)
+  const [saldo, setSaldo] = useState<string>("200.00");
     const router = useRouter();
-
+  function eyea() {
+    setOlhos(!olhos);
+    if (olhos === false) {
+      setSaldo(".....");
+    } else if (olhos === true) {
+      setSaldo("200.00");
+    }
+  }
   //#0A8544
 
   function deposito(){
@@ -42,7 +47,7 @@ export default function Interface() {
             <View style={styles.saldo}>
               <Text style={styles.saldoText}>R$ {saldo}</Text>
 
-              <TouchableOpacity>
+              <TouchableOpacity onPress={eyea}>
                 {olhos ? (
                   <Image
                     source={require("../Assets/interface/olho1.png")}
