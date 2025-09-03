@@ -25,10 +25,17 @@ export default function FazerPix(){
                     </TouchableOpacity>
                 </View>
 
+                <View style={styles.EnviarPix}>
+                    <Text>
+                        
+                    </Text>
+                </View>
+
                 <View style={styles.recorrentes}>
                     <Text style={styles.pixRecoText}>
                         Pix Recorrentes
                     </Text>
+
                     <View style={styles.container}>
                         <View style={styles.cont}>
                             <View style={styles.new}>
@@ -79,6 +86,7 @@ export default function FazerPix(){
                             />
 
                         </View>
+
                     </View>
                 </View>
              </View>
@@ -165,6 +173,9 @@ new:{
 paste:{
     width:24,
     height:24
+},
+EnviarPix:{
+top:50
 }
 
 
