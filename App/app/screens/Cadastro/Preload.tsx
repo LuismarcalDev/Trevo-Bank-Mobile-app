@@ -23,7 +23,7 @@ export default function Preload() {
 
       <View style={{ marginTop: 10 }}>
      <LottieView
-     source={require("./loader.json")}
+     source={require("./Assets/loader.json")}
      autoPlay
      loop
         style={{ width: 500, height: 500 }}

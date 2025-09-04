@@ -1,4 +1,4 @@
-import { View,Text,StyleSheet,Image,TextInput,TouchableOpacity } from "react-native"
+import { View,Text,StyleSheet,TextInput,TouchableOpacity } from "react-native"
 import Header from "../Header"
 export default function Deposito(){
     return(

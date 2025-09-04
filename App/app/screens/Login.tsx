@@ -31,7 +31,7 @@ function login(){
 }
 
 function Cadastro(){
-    router.push("/screens/Cadastro/Cadastro")
+    router.push("/screens/Cadastro/CadastroTl1")
 }
 
 
