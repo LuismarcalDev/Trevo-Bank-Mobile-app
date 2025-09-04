@@ -7,19 +7,17 @@ import {
   ScrollView,
 } from "react-native";
 import { useState } from "react";
-import Header from "./Header";
+import Header from "../Header";
 import CartaoHome from "./CartaoHome";
 import PopUp from "./PopUp";
 import Porquinho from "./Porquinho";
 import Suporte from "./Suporte";
 import { useRouter } from "expo-router";
-import FazerPix from "./Acoes/FazerPix";
-
 
 export default function Interface() {
   const [olhos, setOlhos] = useState<boolean>(false);
   const [saldo, setSaldo] = useState<string>("200.00");
-    const router = useRouter();
+  const router = useRouter();
   function eyea() {
     setOlhos(!olhos);
     if (olhos === false) {
@@ -30,17 +28,13 @@ export default function Interface() {
   }
   //#0A8544
 
-  function deposito(){
-    router.push("/screens/Acoes/Deposito")
+  function deposito() {
+    router.push("/screens/Acoes/Deposito");
   }
 
-  function fazerPix(){
-    router.push("/screens/Acoes/FazerPix")
+  function fazerPix() {
+    router.push("/screens/Acoes/FazerPix");
   }
-
-
-
-
 
   return (
     <ScrollView showsHorizontalScrollIndicator={false}>
@@ -56,12 +50,12 @@ export default function Interface() {
               <TouchableOpacity onPress={eyea}>
                 {olhos ? (
                   <Image
-                    source={require("../Assets/interface/olho1.png")}
+                    source={require("./Assets/interface/iconSecurityOpen.png")}
                     style={styles.imgolho}
                   />
                 ) : (
                   <Image
-                    source={require("../Assets/interface/hide.png")}
+                    source={require("./Assets/interface/iconSecurityClose.png")}
                     style={styles.imgolho}
                   />
                 )}
@@ -71,30 +65,27 @@ export default function Interface() {
           </View>
 
           <View style={styles.acoes}>
-
-           <TouchableOpacity 
-           onPress={fazerPix}
-           >
-             <View style={styles.mb}>
-              <View style={styles.acoes02}>
-                <Image
-                  style={styles.fla}
-                  source={require("../Assets/interface/acoes/pix.png")}
-                />
+            <TouchableOpacity onPress={fazerPix}>
+              <View style={styles.mb}>
+                <View style={styles.acoes02}>
+                  <Image
+                    style={styles.fla}
+                    source={require("./Assets/AcessoRapido/pix.png")}
+                  />
+                </View>
+                <Text style={styles.dk}>Fazer Pix</Text>
               </View>
-              <Text style={styles.dk}>Fazer Pix</Text>
-            </View>
-           </TouchableOpacity>
+            </TouchableOpacity>
 
             <View style={styles.mb}>
-             <TouchableOpacity onPress={deposito}>
-               <View style={styles.acoes02}>
-                <Image
-                  style={styles.fla}
-                  source={require("../Assets/interface/acoes/deposito.png")}
-                />
-              </View>
-             </TouchableOpacity>
+              <TouchableOpacity onPress={deposito}>
+                <View style={styles.acoes02}>
+                  <Image
+                    style={styles.fla}
+                    source={require("./Assets/AcessoRapido/deposito.png")}
+                  />
+                </View>
+              </TouchableOpacity>
               <Text style={styles.dk}>Fazer deposito</Text>
             </View>
 
@@ -102,7 +93,7 @@ export default function Interface() {
               <View style={styles.acoes02}>
                 <Image
                   style={styles.fla}
-                  source={require("../Assets/interface/acoes/cartoes.png")}
+                  source={require("./Assets/AcessoRapido/cartao.png")}
                 />
               </View>
               <Text style={styles.dk}>Cartoes</Text>
@@ -112,7 +103,7 @@ export default function Interface() {
               <View style={styles.acoes02}>
                 <Image
                   style={styles.fla}
-                  source={require("../Assets/emprestimos/pago.png")}
+                  source={require("./Assets/AcessoRapido/emprestimo.png")}
                 />
               </View>
               <Text style={styles.dk}>Emprestimos</Text>
@@ -138,7 +129,7 @@ export default function Interface() {
 const styles = StyleSheet.create({
   geral: {
     height: 1100,
-    backgroundColor:'#fdffffab'
+    backgroundColor: "#fdffffab",
   },
   interp1: {
     paddingLeft: 20,
@@ -161,8 +152,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottomWidth:1,
-    borderBottomColor:"#4063632a"
+    borderBottomWidth: 1,
+    borderBottomColor: "#4063632a",
   },
   textSaldo: {
     fontSize: 20,
@@ -171,7 +162,7 @@ const styles = StyleSheet.create({
   saldoText: {
     fontSize: 24,
     fontWeight: 400,
-    right:5
+    right: 5,
   },
   imgolho: {
     width: 32,
@@ -211,10 +202,10 @@ const styles = StyleSheet.create({
   },
   dk: {
     fontSize: 12,
-    fontWeight:500,
-    color:"#181818e1"
+    fontWeight: 500,
+    color: "#181818e1",
   },
-  sds:{
-    paddingTop:25
-  }
+  sds: {
+    paddingTop: 25,
+  },
 });

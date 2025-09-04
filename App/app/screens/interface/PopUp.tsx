@@ -16,7 +16,7 @@ export default function PopUp() {
           </Text>
           <Image
             style={styles.rel}
-            source={require("../Assets/emprestimos/consignado.png")}
+            source={require("./Assets/popUp/consignado.png")}
           />
         </View>
       </View>
@@ -30,7 +30,7 @@ export default function PopUp() {
           </Text>
           <Image
             style={styles.rel}
-            source={require("../Assets/emprestimos/pessoal.png")}
+            source={require("./Assets/popUp/pessoal.png")}
           />
         </View>
       </View>
@@ -44,7 +44,7 @@ export default function PopUp() {
           </Text>
           <Image
             style={styles.rel}
-            source={require("../Assets/emprestimos/financiamento.png")}
+            source={require("./Assets/popUp/financiamento.png")}
           />
         </View>
       </View>
@@ -56,9 +56,9 @@ const styles = StyleSheet.create({
   scroll: {
     padding: 10,
     flexDirection: "row",
-  
-    paddingRight:20,
-    width:"100%"
+
+    paddingRight: 20,
+    width: "100%",
   },
   container: {
     width: 230,

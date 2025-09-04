@@ -1,19 +1,15 @@
-import { View, Text, StyleSheet,Image } from "react-native";
-import LottieView from 'lottie-react-native';
+import { View, Text, StyleSheet, Image } from "react-native";
+import LottieView from "lottie-react-native";
 import React, { useEffect } from "react";
 import { useRouter } from "expo-router";
 export default function Preload() {
   const router = useRouter();
 
-   useEffect(() => {
-      setTimeout(() => {
-        router.push("/screens/Login");
-      }, 8000);
-    });
-
-
-
-
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/screens/Login");
+    }, 8000);
+  });
 
   return (
     <View style={styles.preload}>
@@ -22,12 +18,12 @@ export default function Preload() {
       </Text>
 
       <View style={{ marginTop: 10 }}>
-     <LottieView
-     source={require("./Assets/loader.json")}
-     autoPlay
-     loop
-        style={{ width: 500, height: 500 }}
-     />
+        <LottieView
+          source={require("./Assets/loader.json")}
+          autoPlay
+          loop
+          style={{ width: 500, height: 500 }}
+        />
       </View>
     </View>
   );
@@ -45,10 +41,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "600",
     textAlign: "center",
-    top:30,
+    top: 30,
     textShadowColor: "#11b15c28", // cor da sombra
     textShadowOffset: { width: 2, height: 10 }, // deslocamento x e y
     textShadowRadius: 20, // desfoque
-    
   },
 });
