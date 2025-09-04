@@ -7,7 +7,18 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Header from "../Header";
+import { useState } from "react";
 export default function FazerPix() {
+    const [chave,setChave] = useState<string>("")
+    const [verificaChave,setVerificaChave] = useState<string>("")
+    function verificarChave(){
+      if (verificaChave === ""){
+       
+      }else {
+         setChave(verificaChave)
+      }
+    }
+
   return (
     <View style={{ flex: 1 }}>
       <Header />
@@ -18,17 +29,26 @@ export default function FazerPix() {
           <TextInput
             style={styles.input}
             placeholder="Chave pix do destinatario"
+            value={verificaChave}
+            onChangeText={setVerificaChave}
           />
           <Text style={styles.saldo}>Saldo: R$ 285,93</Text>
+
+      { chave ?  <View style={styles.EnviarPix}>
+           <TextInput
+           style={styles.inputPix}
+           placeholder="R$ 0.00"
+           keyboardType="numeric"
+           
+           />
+           </View> : ""}
+                  
           <TouchableOpacity style={styles.botao}>
-            <Text style={styles.textBtn}>Confirmar</Text>
+            <Text style={styles.textBtn} onPress={verificarChave}>Confirmar</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={styles.EnviarPix}>
-          <Text></Text>
-        </View>
-
+       
         <View style={styles.recorrentes}>
           <Text style={styles.pixRecoText}>Pix Recorrentes</Text>
 
@@ -142,12 +162,24 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     fontSize: 13,
   },
-  new: {},
+
   paste: {
     width: 24,
     height: 24,
   },
   EnviarPix: {
-    top: 50,
+    top:50,
+    paddingBottom:30
   },
+  inputPix:{
+    width:"100%",
+    textAlign:"center",
+    borderBottomWidth:2,
+    borderBottomColor:"#069448",
+    fontSize:40,
+
+  },
+  new:{
+    
+  }
 });

@@ -1,7 +1,22 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { useFonts, Montserrat_400Regular } from "@expo-google-fonts/montserrat";
 import { Poppins_400Regular } from "@expo-google-fonts/poppins";
+import { useState, useEffect } from "react";
 export default function Header() {
+  const [saudacao, setSaudacao] = useState<string>("Boa Noite!");
+
+  useEffect(() => {
+    const hora = new Date().getHours();
+
+    if (hora >= 5 && hora < 12) {
+      setSaudacao("Bom Dia!");
+    } else if (hora >= 12 && hora < 18) {
+      setSaudacao("Boa Tarde!");
+    } else {
+      setSaudacao("Boa Noite!");
+    }
+  }, []);
+
   let [fontsLoaded] = useFonts({
     Montserrat_400Regular,
     Poppins_400Regular,
@@ -14,7 +29,7 @@ export default function Header() {
   return (
     <View style={styles.header}>
       <View>
-        <Text style={styles.saudacao}>Boa Noite!</Text>
+        <Text style={styles.saudacao}>{saudacao}</Text>
 
         <Text style={styles.nomeSaudacao}>Luis Felippe</Text>
       </View>
