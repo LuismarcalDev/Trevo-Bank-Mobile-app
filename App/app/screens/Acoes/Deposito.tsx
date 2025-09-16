@@ -5,8 +5,20 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { useState,useContext } from "react";
 import Header from "../Header";
+import { MeuContexto,MeuProvider } from "@/app/Context/AppContext";
+
 export default function Deposito() {
+  const contexto = useContext(MeuContexto)
+const {saldo,setSaldo} = useContext(MeuContexto)
+const [deposito,setDeposrito] = useState<string>()
+
+function AdcSaldo() {
+let soma = (Number(saldo) + Number(deposito))
+setSaldo(String(soma))
+}
+
   return (
     <View style={{ flex: 1 }}>
       <Header />
@@ -19,6 +31,8 @@ export default function Deposito() {
             style={styles.input}
             placeholder="R$ 00.00"
             keyboardType="numeric"
+            value={deposito}
+            onChangeText={setDeposrito}
           />
           <View style={styles.vDefinidos}>
             <TouchableOpacity style={styles.vDefinidos01}>
@@ -35,7 +49,7 @@ export default function Deposito() {
             </TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.jin}>
-            <Text style={styles.jins}>Fazer Deposito</Text>
+            <Text style={styles.jins} onPress={AdcSaldo}>Fazer Deposito</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -1,17 +1,38 @@
+import React, { createContext, useState, ReactNode, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// import React, { createContext, useState} from "react";
+export const MeuContexto = createContext({
+  saldo: "",
+  setSaldo: (_: string) => {}
+});
 
-// export const NomeContext = createContext();
+type MeuProviderProps = {
+  children: ReactNode;
+};
 
-// export const NomeProvider = ({children}) => {
-//   const [saldo,setSaldo] = useState<string> ("200.00");
+export function MeuProvider({ children }: MeuProviderProps) {
+  const [saldo, setSaldo] = useState<string>("");
 
-//   return (
-//      <NomeContext.Provider value={{ saldo, setSaldo }}>
-//      {children}
-//     </NomeContext.Provider>
-//   )
+  // Carregar saldo ao iniciar
+  useEffect(() => {
+    const carregarSaldo = async () => {
+      const valor = await AsyncStorage.getItem("saldo");
+      if (valor) setSaldo(JSON.parse(valor));
+    };
+    carregarSaldo();
+  }, []);
 
+  // Salvar saldo sempre que mudar
+  useEffect(() => {
+    const salvar = async () => {
+      await AsyncStorage.setItem("saldo", JSON.stringify(saldo));
+    };
+    salvar();
+  }, [saldo]);
 
-
-// }
+  return (
+    <MeuContexto.Provider value={{ saldo, setSaldo }}>
+      {children}
+    </MeuContexto.Provider>
+  );
+}

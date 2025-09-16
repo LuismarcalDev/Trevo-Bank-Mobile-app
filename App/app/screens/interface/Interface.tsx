@@ -6,26 +6,29 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import Header from "../Header";
 import CartaoHome from "./CartaoHome";
 import PopUp from "./PopUp";
 import Porquinho from "./Porquinho";
 import Suporte from "./Suporte";
+import { MeuContexto,MeuProvider } from "@/app/Context/AppContext";
 import { useRouter } from "expo-router";
 
 export default function Interface() {
   const [olhos, setOlhos] = useState<boolean>(false);
-  const [saldo, setSaldo] = useState<string>("200.00");
+  const {saldo,setSaldo} = useContext(MeuContexto)
+  const contexto = useContext(MeuContexto)
   const router = useRouter();
   function eyea() {
     setOlhos(!olhos);
     if (olhos === false) {
-      setSaldo(".....");
+    alert("ola")
     } else if (olhos === true) {
       setSaldo("200.00");
     }
   }
+    if (!contexto) return null;
   //#0A8544
 
   function deposito() {
